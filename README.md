@@ -39,9 +39,9 @@ We dont need to use REST/GRPC for communication between Utility and HR module be
 
 HR module communicates with Utility through the `DepartmentService` interface.
 
-The connectivity of HR module to Utility module handle by Utility connector which centralize and isolate the communication and protocol.
+The connectivity of HR module to Utility module handle by `UtilityConnector` which centralize and isolate the communication and protocol.
 
-In future, if we separate utility module into a separate micro service, we can easily replace/restructure the UtilityConnector with REST/GRPC etc.
+In future, if we separate utility module into a separate micro service, we can easily replace / restructure the UtilityConnector with REST / GRPC etc.
 this will protect/isolate the business logic modifications when utility module changed.
 
 
@@ -75,18 +75,17 @@ Configure the data sources in `application.properties` file with correct databas
  - `app.datasource.utility.password=password`
  - `app.datasource.utility.driver-class-name=com.mysql.cj.jdbc.Driver`
 
-#
-Change the Server Port if necessary
+### Change the Server Port if necessary
 
 `server.port=8080`
 
-Run the project as spring boot application
+## Run the project as spring boot application
 
 Main class
 `AssignmentDemoApplication`
 
 
-# Success Response
+### Success Response
 curl http://localhost:8080/api/employees/103
 
 ```
@@ -97,7 +96,7 @@ curl http://localhost:8080/api/employees/103
 }
 ```
 
-# Employer Not Found
+### Employer Not Found
 curl http://localhost:8080/api/employees/3455
 
 ```
@@ -108,7 +107,7 @@ curl http://localhost:8080/api/employees/3455
     "message": "Employee not found with the ID 3455"
 }
 ```
-# Department Not Found
+### Department Not Found
 curl http://localhost:8080/api/employees/104
 
 ```
